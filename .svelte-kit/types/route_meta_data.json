@@ -1,0 +1,48 @@
+{
+	"/(app)": [
+		"src/routes/+layout.js",
+		"src/routes/+layout.js"
+	],
+	"/": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/admin": [
+		"src/routes/+layout.js"
+	],
+	"/auth": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/c/[id]": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/documents": [
+		"src/routes/+layout.js"
+	],
+	"/error": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/modelfiles": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/modelfiles/create": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/modelfiles/edit": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/playground": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/prompts": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/prompts/create": [
+		"src/routes/+layout.js"
+	],
+	"/(app)/prompts/edit": [
+		"src/routes/+layout.js"
+	],
+	"/s/[id]": [
+		"src/routes/+layout.js"
+	]
+}

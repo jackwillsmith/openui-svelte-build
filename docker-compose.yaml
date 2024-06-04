@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+    ollama:
+        volumes:
+            - ollama:/root/.ollama
+        container_name: ollama
+        pull_policy: always
+        tty: true
+        restart: unless-stopped
+        image: ollama/ollama:latest
+
+    open-ui-frontend:
+        container_name: open-ui-frontend
+        pull_policy: always
+        tty: true
+        restart: unless-stopped
+        image: eilinge/open-ui-frontend:latest
+
+volumes:
+    ollama: {}

@@ -1,0 +1,36 @@
+name: Frontend Build
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    name: 'Format & Build Frontend'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20' # Or specify any other version you want to use
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Format Frontend
+        run: npm run format
+
+      - name: Check for Changes After Format
+        run: git diff --exit-code
+
+      - name: Build Frontend
+        run: npm run build
