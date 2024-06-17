@@ -3,7 +3,8 @@ import { dev } from '$app/environment';
 
 export const APP_NAME = 'Open WebUI';
 // export const WEBUI_BASE_URL = dev ? `http://${location.hostname}:8080` : ``;
-export const WEBUI_BASE_URL = dev ? `http://openui.gpt-oai.icu:8080/api/config` : ``;
+// export const WEBUI_BASE_URL = dev ? `http://openui.gpt-oai.icu:8080` : ``;
+export const WEBUI_BASE_URL = `http://openui.gpt-oai.icu:8080`;
 
 export const WEBUI_API_BASE_URL = `${WEBUI_BASE_URL}/api/v1`;
 
