@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="robots" content="noindex,nofollow" />
+		<script>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			(() => {
+				if (localStorage?.theme && localStorage?.theme.includes('oled')) {
+					document.documentElement.style.setProperty('--color-gray-900', '#000000');
+					document.documentElement.style.setProperty('--color-gray-950', '#000000');
+					document.documentElement.classList.add('dark');
+				} else if (
+					localStorage.theme === 'light' ||
+					(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)
+				) {
+					document.documentElement.classList.add('light');
+				} else if (localStorage.theme && localStorage.theme !== 'system') {
+					localStorage.theme.split(' ').forEach((e) => {
+						document.documentElement.classList.add(e);
+					});
+				} else if (localStorage.theme && localStorage.theme === 'system') {
+					systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+					document.documentElement.classList.add(systemTheme ? 'dark' : 'light');
+				} else {
+					document.documentElement.classList.add('dark');
+				}
+
+				window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+					if (localStorage.theme === 'system') {
+						if (e.matches) {
+							document.documentElement.classList.add('dark');
+							document.documentElement.classList.remove('light');
+						} else {
+							document.documentElement.classList.add('light');
+							document.documentElement.classList.remove('dark');
+						}
+					}
+				});
+			})();
+		</script>
+
+		
+		<link rel="modulepreload" href="/_app/immutable/entry/start.f001d27c.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/scheduler.4a29073b.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/singletons.5c93d3e3.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.7c7f65a8.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.80839f48.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.10afcf02.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_t6xr2s = {
+						base: "",
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/_app/immutable/entry/start.f001d27c.js"),
+						import("/_app/immutable/entry/app.80839f48.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
